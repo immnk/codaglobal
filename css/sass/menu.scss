@@ -1,0 +1,22 @@
+.navbar-bg{
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgb(51,51,51);
+  .navbar-brand{
+    padding: 0px;
+    color: rgb(51, 51, 51);
+    font-weight: lighter;
+    img{
+      display: inline;
+    }
+    .tag-line{
+      text-transform: capitalize;
+    }
+  }
+}
+.navbar {
+  margin-bottom: 0;
+  /* background-color: rgba(255, 255, 255, 0.25); */
+}
+.nav-center{
+  line-height: 50px;
+}

@@ -1,0 +1,17 @@
+<div class="container dashboard">
+  <div class="filter-panel"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="course" ng-repeat="course in courses">
+        <img ng-src="{{course.image}}">
+        <div class="title">{{course.title}}</div>
+        <a href="{{course.url}}">extlink</a>
+        <div class="rating">{{course.rating}}</div>
+        <div class="description">{{course.description}}</div>
+        <div class="tag">{{course.category}}</div>
+        <div class="price">{{course.price}}</div>
+        <div class="type">{{course.type}}</div>
+      </div>
+    </div>
+  </div>
+</div>

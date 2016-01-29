@@ -1,0 +1,20 @@
+.navbar-bg {
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid #333333; }
+  .navbar-bg .navbar-brand {
+    padding: 0px;
+    color: #333333;
+    font-weight: lighter; }
+    .navbar-bg .navbar-brand img {
+      display: inline; }
+    .navbar-bg .navbar-brand .tag-line {
+      text-transform: capitalize; }
+
+.navbar {
+  margin-bottom: 0;
+  /* background-color: rgba(255, 255, 255, 0.25); */ }
+
+.nav-center {
+  line-height: 50px; }
+
+/*# sourceMappingURL=menu.css.map */
