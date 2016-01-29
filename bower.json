@@ -1,0 +1,25 @@
+{
+  "name": "CodaGlobal",
+  "authors": [
+    "Manikanta <im.manikanta@gmail.com>"
+  ],
+  "description": "A learn hub portal",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "learn",
+    "hub"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "components-font-awesome": "~4.5.0"
+  }
+}
