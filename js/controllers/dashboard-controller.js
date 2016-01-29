@@ -16,7 +16,13 @@ angular.module('codaglobal.controllers')
         $scope.courses = response;
         $scope.allCourses = response;
       }, function(error){
-        console.log('error occurred..');
+        console.error('error occurred..');
+      });
+
+      TrainingService.getAllCategories().then(function(categories){
+        $scope.data.courses = categories;
+      }, function(error){
+        console.error('error occurred');
       });
     }
 

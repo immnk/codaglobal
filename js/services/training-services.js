@@ -5,6 +5,7 @@ angular.module('codaglobal.services')
 
   var factory = {};
   var courses = [];
+  var categories = [];
 
   init();
 
@@ -16,7 +17,7 @@ angular.module('codaglobal.services')
     var deferred = $q.defer();
     
     if(courses.length == 0){
-      $http.get('http://www.json-generator.com/api/json/get/bQcLSJFkde')
+      $http.get('http://www.json-generator.com/api/json/get/cmAeqglynC')
         .then(function(response){
           if(response.status == 200){
             var db_items = response.data;
@@ -37,15 +38,60 @@ angular.module('codaglobal.services')
             console.log("Fetched all items : " + JSON.stringify(courses));
 
             deferred.resolve(courses);
+          } else{
+            var err= {
+              success: false,
+              message: 'Some backend problem'
+            }
+            deferred.reject(err);
           }
         }, function(error){
+          var err= {
+              success: false,
+              message: 'Some backend problem' + error
+            }
           console.log('Couldnt fetch all inventory items from database...');
-          deferred.reject(error);
+          deferred.reject(err);
       });
     } else{
       console.log(courses);
       deferred.resolve(courses);
     }
+    return deferred.promise;
+  }
+
+  factory.getAllCategories = function(){
+    var deferred = $q.defer();
+
+    if(categories.length == 0){
+      $http.get('http://www.json-generator.com/api/json/get/cvxiApEZea')
+        .then(function(response){
+          if(response.status == 200){
+            categories = [];
+            angular.forEach(response.data, function(category){
+              categories.push(category.category);
+            })
+            deferred.resolve(categories);
+          } else{
+            var err= {
+              success: false,
+              message: 'Some backend problem' + error
+            };
+            deferred.reject(err);
+          }
+        }, function(error){
+          var err= {
+            success: false,
+            message: 'Some backend problem' + error
+          };
+
+          console.log('Couldnt fetch all inventory items from database...');
+          deferred.reject(err);
+        });
+    } else{
+      deferred.resolve(categories);
+    }
+
     return deferred.promise;
   }
 
