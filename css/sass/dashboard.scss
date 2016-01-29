@@ -1,4 +1,7 @@
-$panel-background: #989898;
+$panel-background: rgba(255,255,255, 0.5);
+$label-background: #6C7A89;
+$tag-width: 175px;
+
 .dashboard{
 
   .filter-panel{
@@ -6,13 +9,109 @@ $panel-background: #989898;
     top: 0;
     bottom: 0;
     left: 0;
-    background: rgba($panel-background, 0.5);
-    border: 1px solid #010101;
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    width: 200px;
+    background: $panel-background;
+    border-right: 1px solid #010101;
+    // -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    // -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    // box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    z-index: 10;
+    
+    .category{
+      width: 100%;
+      padding: 10px;
+      .category-filter{
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 15px;
+      }
+      .block-element{
+        display: block;
+      }
+    }
   }
-  .course{
-    position: relative;
+  .content{
+    margin-left: 200px;
+    .title-search{
+      margin: 18px 0 10px;
+      width: 100%;
+    }
+    .row{
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .course{
+      position: relative;
+      /* width: 100%; */
+      overflow: hidden;
+      border: 1px solid #9a9a9a;
+      margin: 10px;
+      padding: 10px 0 10px 10px;
+      transition: 1s linear all;
+      -webkit-transition: 1s linear all;
+      background: $panel-background;
+      img{
+        width: 300px;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+      .cascade{
+        display: inline-block;
+        padding: 5px;
+      }
+      .rating{
+        @extend .cascade;
+      }
+      .link{
+        @extend .cascade;
+        margin-right: 5px;
+        float: right;
+      }
+      .content-wrapper{
+        width: calc( 100% - #{$tag-width});
+        .title{
+          font-weight: 900;
+          font-size: 2.2em;
+        }
+        .description{
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .tag{
+        position:absolute;
+        right: 0;
+        top: 20px;
+        background: $label-background;
+        color: white;
+        width: $tag-width;
+        text-align: right;
+        padding: 10px;
+      }
+      .price{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        font-weight: 600;
+      }
+    }
+
+    .course.ng-enter {
+      opacity: 0;
+    }
+
+    .course.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+
+    .course.ng-leave {
+      opacity: 1;
+    }
+
+    .course.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
   }
 }

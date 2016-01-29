@@ -2,7 +2,7 @@ angular.module('codaglobal.services', []);
 angular.module('codaglobal.controllers', ['codaglobal.services']);
 
 angular.module('codaglobal', ['ui.bootstrap', 'ui.bootstrap.collapse',
- 'ui.router', 'codaglobal.controllers', 'codaglobal.services'])
+ 'ui.router', 'ngMaterial', 'ngAnimate', 'codaglobal.controllers', 'codaglobal.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

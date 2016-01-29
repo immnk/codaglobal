@@ -34,9 +34,11 @@
   font-weight: normal;
 }
 *{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-body{
+.body{
   background: #F9F9F9 url(../img/symphony.png) repeat 0 0;
   font-family: 'Lato', sans-serif;
 }

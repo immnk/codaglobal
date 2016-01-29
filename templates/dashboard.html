@@ -1,16 +1,65 @@
-<div class="container dashboard">
-  <div class="filter-panel"></div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="course" ng-repeat="course in courses">
-        <img ng-src="{{course.image}}">
-        <div class="title">{{course.title}}</div>
-        <a href="{{course.url}}">extlink</a>
-        <div class="rating">{{course.rating}}</div>
-        <div class="description">{{course.description}}</div>
-        <div class="tag">{{course.category}}</div>
-        <div class="price">{{course.price}}</div>
-        <div class="type">{{course.type}}</div>
+<div class="dashboard">
+  <div class="filter-panel">
+    <div class="category">
+      <div class="category-filter">
+        Category
+      </div>
+      <div>
+        <md-checkbox class="block-element" ng-repeat="search in data.courses" 
+          aria-label="{{search}}" ng-click="filterCourses(search, data.selected)">
+          {{search}}
+        </md-checkbox>
+      </div>
+
+      <div class="category-filter">
+        Sort by
+      </div>
+      <md-radio-group ng-model="data.sort">
+        <md-radio-button value="rating" class="md-primary">Rating</md-radio-button>
+        <md-radio-button value="price"> Price </md-radio-button>
+      </md-radio-group>
+    </div>
+
+  </div>
+
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <md-input-container class="title-search">
+          <label>Enter Title</label>
+          <input ng-model="search.title">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="course" ng-repeat="course in courses | filter: search| orderBy: data.sort: true">
+          <div class="col-md-4">
+            <img ng-src="{{course.image}}">
+            <div class="rating">
+              <span ng-repeat="i in getStars(course.rating) track by $index" class="fa fa-star"></span>
+              <span ng-if="isInt(course.rating)" class="fa fa-star-half-o"></span>
+            </div>
+            <div class="link">
+              <a href="{{course.url}}" target="_blank">
+                <i class="fa fa-link"></i>&nbsp;course link
+              </a>
+            </div>
+          </div>
+          <!-- <div class="col-md-8"> -->
+            <div class="content-wrapper">
+              <h3 class="title">{{course.title}}</h3>
+              <div class="description">{{course.description}}</div>  
+            </div>
+            <div class="tag"><i class="fa fa-tag"></i>&nbsp;{{course.category}}</div>
+            <div class="price">{{course.price}}</div>
+          <!-- </div> -->
+          
+          <!-- <div class="type">{{course.type}}</div> -->
+
+        </div>
+
       </div>
     </div>
   </div>
