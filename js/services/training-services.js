@@ -6,6 +6,11 @@ angular.module('codaglobal.services')
   var factory = {};
   var courses = [];
   var categories = [];
+  var categories_url = "http://localhost:3300/getAllCategories";
+  var course_url = "http://localhost:3300/getAllCourses";
+
+  var temp_course_url = "http://www.json-generator.com/api/json/get/cmAeqglynC";
+  var temp_categories_url = "http://www.json-generator.com/api/json/get/cvxiApEZea";
 
   init();
 
@@ -17,7 +22,7 @@ angular.module('codaglobal.services')
     var deferred = $q.defer();
     
     if(courses.length == 0){
-      $http.get('http://www.json-generator.com/api/json/get/cmAeqglynC')
+      $http.get(temp_course_url)
         .then(function(response){
           if(response.status == 200){
             var db_items = response.data;
@@ -64,7 +69,7 @@ angular.module('codaglobal.services')
     var deferred = $q.defer();
 
     if(categories.length == 0){
-      $http.get('http://www.json-generator.com/api/json/get/cvxiApEZea')
+      $http.get(temp_categories_url)
         .then(function(response){
           if(response.status == 200){
             categories = [];

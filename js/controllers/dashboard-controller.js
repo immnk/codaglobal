@@ -12,6 +12,7 @@ angular.module('codaglobal.controllers')
       $scope.data.selected = [];
       $scope.allCourses = [];
 
+      // Get all the courses from database
       TrainingService.getAllCourses().then(function(response){
         $scope.courses = response;
         $scope.allCourses = response;
@@ -19,6 +20,7 @@ angular.module('codaglobal.controllers')
         console.error('error occurred..');
       });
 
+      //Get all the categories from database
       TrainingService.getAllCategories().then(function(categories){
         $scope.data.courses = categories;
       }, function(error){
@@ -26,11 +28,14 @@ angular.module('codaglobal.controllers')
       });
     }
 
+    // course is selected checkbox and list is array of selected checkboxes
     $scope.filterCourses = function(course, list){
+      // update the selected checkboxes
       var idx = list.indexOf(course);
       if (idx > -1) list.splice(idx, 1);
       else list.push(course);
 
+      // Get the courses array which are found in selected array
       var filt_courses = [];
       angular.forEach($scope.allCourses, function(crs){
         if(list.indexOf(crs.category) > -1){
@@ -38,16 +43,19 @@ angular.module('codaglobal.controllers')
         }
       });
 
+      // If there are no courses display all courses
       if(filt_courses.length > 0)
         $scope.courses = filt_courses;
       else
         $scope.courses = $scope.allCourses;
     }
 
+    // Get completed stars
     $scope.getStars = function(number){
       return new Array(Math.floor(number));
     }
 
+    //Get half star if needed
     $scope.isInt = function(number){
       return !(number % 1 === 0);
     }

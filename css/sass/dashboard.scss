@@ -12,10 +12,8 @@ $tag-width: 175px;
     width: 200px;
     background: $panel-background;
     border-right: 1px solid #010101;
-    // -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-    // -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-    // box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
     z-index: 10;
+    transition: .5s all ease-in;
     
     .category{
       width: 100%;
@@ -30,9 +28,21 @@ $tag-width: 175px;
         display: block;
       }
     }
+    .total-courses{
+      border: 1px solid $label-background;
+      background: $label-background;
+      color: white;
+      border-radius: 15px;
+      margin: 10px;
+      padding: 10px;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    }
   }
   .content{
     margin-left: 200px;
+    transition: .5s all ease-in;
     .title-search{
       margin: 18px 0 10px;
       width: 100%;
@@ -89,6 +99,9 @@ $tag-width: 175px;
         width: $tag-width;
         text-align: right;
         padding: 10px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
       }
       .price{
         position: absolute;
@@ -114,4 +127,10 @@ $tag-width: 175px;
       opacity: 0;
     }
   }
+}
+
+@media only screen 
+  and (max-device-width: 768px){
+
+
 }
